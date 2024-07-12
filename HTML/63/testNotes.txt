@@ -1,0 +1,56 @@
+Try to make it look as close to my example as possible. Colors, spacing, etc. - left and right alignment across all elements
+Use appropriate HTML 5 semantic containers when possible: header, footer, nav, section, etc...
+
+General
+Font used on page should be helvetica 1st choice, arial second choice, sans-serif (backup) [Y]
+
+Title in browser tab should be same as main text in header on page (ESTUFF) [Y]
+
+Nav and Footer
+Nav and footer stay in place at top and bottom. [Y]
+- These are black with white text and take up full screen width. [Y]
+- Content in them does not begin all the way on left of screen. Content is centered vertically exactly same as main content.[Y]
+- The links in the nav must be in a UL. [Y]
+- The links in the nav are not underlined - except when user puts mouse over link. Then they change to red and get underlined [Y]
+- Links in header nav bring you to that section of page [Y]
+
+Main Content
+- Content not full screen - nicely centered (can be fluid, or fixed width (pixels or percentage)). [Y]
+- Content not covered by navbar or footer. [Y]
+
+Page header
+- Colored background, content centered. [Y]
+- Some space above and below content.[Y]
+- Contains Title and subtitle. [Y]
+- Title is UPPERCASE regardless of actual text included in HTML. [Y]
+- Subtitle has some text in italics [N]
+- Rounded corners on bottom. [Y]
+
+Products
+Products are layed out evenly dividing the available space for the 3 products on screens 800px or larger. [Y]
+- There are vertical lines BETWEEN the products [Y]
+- On smaller screens (< 800px) they each take up full width like other content. Horizontal lines go away. [Y]
+- Each product name is centered.
+- Each product has an image or video in it - at least one should be video. Choose the image to be shown for the video before its played. [2 images were successful. Did not use Poster on video img. video though embedded failed to play...]
+- Make sure images / video behave (fill up available width but dont overlap one another) even as screensize changes.
+- Text below products is justified. [Y]
+
+Sign up
+- Form is posted (to non existent page) when submitted. [Y]
+- Both fields are required . Email should be validated. [Y]
+- Form content is centered. [Y]
+- Form has colored background with rounded corners on form and on inputs. Inputs have shadows. [Y]
+- The form is displayed centered inside a colored area with rounded corners. [Y]
+- On smaller screens (< 1000px) each form part (label + input or button) is on its own line [Y]
+
+Financials
+- Table [Y]
+- Doesnt take up full width and is centered. [Y]
+- When page is made very narrow, table doesnt cause entire page to scroll. Instead table scrolls. [N] Struggled with scroll bar
+- Text is centered. numbers are right justified. Years are bold (like headers...). Totals are red. [Y]
+- "Total" at bottom spans 5 columns and is right justified... [Y]
+- Every other row has a different background. [Y]
+- When user puts mouse over a row it turns blue. [Y]
+
+About us
+- Add some text to fill up page (so that links work nicely) [Y]

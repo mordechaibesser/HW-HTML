@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCS_SOFTWARE
+
+    </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header-bg {
+            background-color: rgb(60, 85, 159);
+            color: black;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .header-bg .title {
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .header-bg .subtitle {
+            font-size: 1.2rem;
+        }
+
+        .product-divider {
+            border-right: 1px solid #ccc;
+        }
+
+        .sign-up {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .financials table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .financials th,
+        .financials td {
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .financials tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .financials tr:hover {
+            background-color: #cce5ff;
+        }
+
+        .financials th {
+            font-weight: bold;
+        }
+
+        .financials .total {
+            color: red;
+            font-weight: bold;
+        }
+
+        .footer-bg {
+            background-color: black;
+            color: white;
+            text-align: left;
+            padding: 0.5rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">PCS SOFTWARE</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#signup">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#financials">Financials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="header-bg">
+        <div class="title">PCS SOFTWARE</div>
+        <div class="subtitle">A Cohort K Company</div>
+    </header>
+    <div class="container mt-5">
+        <section id="products">
+            <h2>Products</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida
+                dolor sit amet lacus accumsan et viverra justo commodo.</p>
+            <div class="row">
+                <div class="col-md-4 product-divider">
+                    <h3>Gadgets</h3>
+                    <img src="/HTML/63/Images/download.jpeg" class="img-fluid" alt="Gadget Image">
+                    <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-md-4 product-divider">
+                    <h3>Accessories</h3>
+                    <video controls class poster="/HTML/63/Images/swaccess.jpeg">
+                        <source src=<iframe width="1688" height="642" src="https://www.youtube.com/embed/xW2BaDT0Huc"
+                            title="PCS back again ● Business enrichment courses! deadline approaching! Make sure to sign up!"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Software</h3>
+                    <img src="/HTML/63/Images/software.jpeg" class="img-fluid" alt="Software Image">
+                    <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </section>
+        <section id="signup" class="sign-up mt-5">
+            <h2>Sign Up for Our Newsletter</h2>
+            <form action="#" method="post" class="row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group col-12 text-center">
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+        </section>
+        <section id="financials" class="financials mt-5">
+            <h2>Financial Overview</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>1st Quarter</th>
+                        <th>2nd Quarter</th>
+                        <th>3rd Quarter</th>
+                        <th>4th Quarter</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>2012</strong></td>
+                        <td>50,000</td>
+                        <td>55,000</td>
+                        <td>45,000</td>
+                        <td>60,000</td>
+                        <td class="total">210,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2013</strong></td>
+                        <td>60,000</td>
+                        <td>65,000</td>
+                        <td>55,000</td>
+                        <td>70,000</td>
+                        <td class="total">250,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2014</strong></td>
+                        <td>70,000</td>
+                        <td>75,000</td>
+                        <td>65,000</td>
+                        <td>80,000</td>
+                        <td class="total">290,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2015</strong></td>
+                        <td>80,000</td>
+                        <td>85,000</td>
+                        <td>75,000</td>
+                        <td>90,000</td>
+                        <td class="total">330,000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right"><strong>Total</strong></td>
+                        <td class="total">1,080,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="about" class="mt-5">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim laborum.
+            </p>
+            <!-- Repeat Lorem Ipsum for 1000 words -->
+        </section>
+    </div>
+    <footer class="footer-bg">
+        <p>&copy; PCS 2024. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
