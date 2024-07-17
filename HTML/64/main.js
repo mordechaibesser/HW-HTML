@@ -1,5 +1,5 @@
+console.log("main.js loaded");
 'use strict';
-
 var myName = "Mordechai Besser";
 var email = "mordechaitzvi23@gmail.com";
 
