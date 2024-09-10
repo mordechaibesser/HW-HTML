@@ -2,61 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12-Hour Digital Clock</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="clock.css">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #282c34;
-            color: white;
-            font-family: 'Arial', sans-serif;
-        }
-
         .clock {
-            font-size: 5rem;
-            border: 5px solid white;
-            padding: 20px;
-            border-radius: 10px;
+            color: green;
         }
     </style>
 </head>
 
 <body>
-
-    <div class="clock" id="clock"></div>
-
+    <h1>PCS Clock</h1>
+    <h2>The amazing PCS clock!</h2>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsa ullam doloribus architecto, sit tempora
+    aliquid iusto, quos laboriosam eligendi fugit sequi id vel impedit labore et odio incidunt consequuntur!
+    <div id="clockGoesHere"></div>
+    <h5>&copy;copyright PCS 2024</h5>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="clock.js"></script>
     <script>
-        function updateClock() {
-            const now = new Date();
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
-            let amPm = hours >= 12 ? 'PM' : 'AM'; // Determine AM/PM
-
-            // Convert to 12-hour format
-            hours = hours % 12;
-            hours = hours ? hours : 12; // The hour '0' should be '12'
-
-            // Add leading zero to minutes and seconds if needed
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            const currentTime = hours + ":" + minutes + ":" + seconds + " " + amPm;
-            document.getElementById('clock').innerHTML = currentTime;
-        }
-
-        // Update the clock every second
-        setInterval(updateClock, 1000);
-
-        // Initial call to display clock immediately on load
-        updateClock();
+        //window.pcs.clock(document.querySelector('#clockGoesHere'));
+        window.pcs.clock('#clockGoesHere');
+        window.pcs.clock();
     </script>
-
 </body>
 
 </html>

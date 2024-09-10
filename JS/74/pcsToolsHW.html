@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCS Tool Example</title>
+    <style>
+        #donald,
+        #kamala {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="donald">Donald Trump</h1>
+    <h1 id="kamala">Kamala Harris</h1>
+
+    <script src="pcsToolsHW.js"></script>
+    <script>
+        const donald = pcs('#donald');
+        const kamala = pcs('#kamala');
+        donald.flash(3000, 1000);
+        kamala.flash(3000, 1000);
+        pcs('#donald')
+            .css('color', 'red')
+
+        donald.data('party', 'Republican');
+        console.log(donald.data('party'));
+
+        pcs('#kamala')
+            .css('color', 'blue')
+            .data('party', 'Democrat');
+        console.log(pcs('#kamala').data('party')); 
+    </script>
+</body>
+
+</html>
