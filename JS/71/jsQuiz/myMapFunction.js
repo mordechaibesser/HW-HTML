@@ -17,4 +17,6 @@ const originalArray = [2, 4, 6];
 const newArray = myMap(originalArray, double);
 
 console.log("Original Array:", originalArray);
-console.log("New Array:", newArray);            
+console.log("New Array:", newArray);
+
+// SL - nice (would have been nice to wrap all in an IIFE so no globals)

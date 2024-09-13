@@ -21,3 +21,6 @@
     console.log("First Counter (should be 5):", firstCounter.getCount());
     console.log("Second Counter (should be 15):", secondCounter.getCount());
 })(window);
+
+// SL - nice!
+// SL - Grade - 98

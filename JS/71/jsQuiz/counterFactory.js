@@ -23,3 +23,6 @@
         };
     })();
 })(window);
+
+// SL - again, why the double IIFE, though cute what you did there with window/global...
+// SL - nice!
