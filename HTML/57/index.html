@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Besser's Bistro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="home">
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="Videos/Besser's_Bistro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <header>
+        <h1>Besser's Bistro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="menu-details.html">Menu Details</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main class="content">
+            <article>
+                <h2>Welcome to Besser's Bistro!</h2>
+                <p>Experience the finest dining with our unique blend of flavors and exceptional service. Our menu
+                    features a variety of delicious dishes made with the freshest ingredients.</p>
+
+                <section>
+                    <h2>Our Restaurant</h2>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Besser's Bistro</p>
+        <audio id="background-music" autoplay loop>
+            <source src="Sounds/mellifluous_music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="audio-controls">
+            <button onclick="toggleMusic()">Toggle Music</button>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMusic() {
+            var audio = document.getElementById('background-music');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Besser's Bistro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="menu-page">
+    <header>
+        <h1>Besser's Bistro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="menu-details.html">Menu Details</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <article>
+                <h2>Our Menu</h2>
+                <!-- Existing content... -->
+
+                <section>
+                    <h2>Popular Dishes</h2>
+                    <table class="menu-table">
+                        <caption>Popular Dishes at Besser's Bistro</caption>
+                        <thead>
+                            <tr>
+                                <th>Dish Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pastrami Sandwich</td>
+                                <td>Steamed pastrami with fried onions on your choice of bread.</td>
+                                <td>$12.99</td>
+                                <td>★★★★☆</td>
+                            </tr>
+                            <tr>
+                                <td>General Tso's Chicken</td>
+                                <td>Sweet and spicy chicken with broccoli and rice.</td>
+                                <td>$10.99</td>
+                                <td>★★★★★</td>
+                            </tr>
+                            <tr>
+                                <td>Chocolate Lava Cake</td>
+                                <td>Warm chocolate cake with a molten center, served with ice cream.</td>
+                                <td>$6.99</td>
+                                <td>★★★★★</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Come and enjoy our delicious dishes!</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Besser's Bistro</p>
+    </footer>
+
+    <style>
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .menu-table th,
+        .menu-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .menu-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .menu-table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .menu-table td:last-child {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        .menu-table caption {
+            caption-side: top;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .menu-table tfoot td {
+            text-align: center;
+            font-style: italic;
+            background-color: #f9f9f9;
+        }
+    </style>
+</body>
+
+</html>

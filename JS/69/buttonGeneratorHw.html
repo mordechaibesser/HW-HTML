@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Generator</title>
+</head>
+
+<body>
+    <button id="button-1">1</button>
+    <script>
+        (function () {
+            let buttonCount = 1;
+
+            document.body.addEventListener('click', function (event) {
+                if (event.target.tagName.toLowerCase() === 'button') {
+                    buttonCount++;
+                    const newButton = document.createElement('button');
+                    newButton.innerText = buttonCount;
+                    newButton.id = `button-${buttonCount}`;
+                    document.body.appendChild(newButton);
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
