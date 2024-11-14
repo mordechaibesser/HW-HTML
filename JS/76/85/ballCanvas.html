@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ball Animation</title>
+  <style>
+    canvas { border: 1px solid black; display: block; margin: 20px auto; }
+  </style>
+</head>
+<body>
+  <div style="text-align: center;">
+    <input type="color" id="ballColor" value="#ff0000">
+    <input type="number" id="ballRadius" placeholder="Enter radius" min="5" max="50">
+    <button id="addBall">Add Ball</button>
+  </div>
+  <canvas id="ballCanvas" width="500" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById("ballCanvas");
+    const ctx = canvas.getContext("2d");
+    let balls = []; // Array to hold all ball objects
+
+    class Ball {
+      constructor(x, y, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.dx = Math.random() * 2 + 1; // Random speed
+        this.dy = Math.random() * 2 + 1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      move() {
+        this.x += this.dx;
+        this.y += this.dy;
+
+        // Check for collision with canvas edges
+        if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+          this.dx *= -1; // Reverse direction
+        }
+        if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+          this.dy *= -1;
+        }
+      }
+    }
+
+    document.getElementById("addBall").addEventListener("click", () => {
+      const color = document.getElementById("ballColor").value;
+      const radius = parseInt(document.getElementById("ballRadius").value);
+
+      if (!radius || radius < 5 || radius > 50) {
+        alert("Please enter a radius between 5 and 50.");
+        return;
+      }
+
+      const x = Math.random() * (canvas.width - radius * 2) + radius;
+      const y = Math.random() * (canvas.height - radius * 2) + radius;
+
+      balls.push(new Ball(x, y, radius, color));
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+      balls.forEach(ball => {
+        ball.move();
+        ball.draw();
+      });
+
+      requestAnimationFrame(animate); // Loop animation
+    }
+
+    animate(); // Start the animation
+  </script>
+</body>
+</html>

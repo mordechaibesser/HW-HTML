@@ -1,16 +1,18 @@
-
 /* globals $*/
 (function () {
     'use strict';
     const zipInput = $('#zip');
-    const apiKey = 'get_your_own_key';
+    const apiKey = '4d940566413cbb48ddbe156f2b502364';
     const locationElem = $('#location');
     const tempElem = $('#temp');
     const descriptionElem = $('#desc');
     const icon = $('#icon');
+    const noWeather = $('.no-weather');
+    const hasWeather = $('.has-weather');
   
     zipInput.change(async () => {
-  
+      noWeather.hide();
+      hasWeather.show();
       /*let response;
       fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipInput.val()},US&appid=${apiKey}&units=imperial&lang=he`)
         .then(r => {
@@ -39,7 +41,10 @@
         descriptionElem.text(weatherData.weather[0].description);
         icon.attr('src', `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`);
       } catch(e) {
-        console.error('oops', e);
+        // console.error('oops', e);
+        $('#error').text(e.message);
+        noWeather.show();
+        hasWeather.hide();
       }
     });
   }());
