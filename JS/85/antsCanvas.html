@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ant Simulation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #canvas {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+        #controls {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ant Simulation</h1>
+
+<div id="controls">
+    <label for="antQuantity">Number of Ants:</label>
+    <input type="number" id="antQuantity" min="1" value="5">
+    
+    <label for="antColorPicker">Ant Color:</label>
+    <input type="color" id="antColorPicker" value="#000000">
+    
+    <button id="addAntsBtn">Add Ants</button>
+</div>
+
+<canvas id="canvas" width="800" height="600"></canvas>
+
+<script>
+    class Ant {
+        constructor(x, y, color) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.size = 10;
+            this.speed = 1;
+            this.directionFrames = Math.floor(Math.random() * 20) + 10; 
+            this.dx = Math.random() < 0.5 ? -1 : 1;
+            this.dy = Math.random() < 0.5 ? -1 : 1;
+            this.image = new Image();
+            this.image.src = "./images/—Pngtree—ant icon_4351705.png";  
+        }
+
+        draw(context) {
+            context.save();
+            context.translate(this.x, this.y);
+            context.drawImage(this.image, -this.size / 2, -this.size / 2, this.size, this.size);
+            context.restore();
+        }
+
+        move(canvas) {
+            if (this.directionFrames <= 0) {
+                this.directionFrames = Math.floor(Math.random() * 20) + 10;
+                this.dx = Math.random() < 0.5 ? -1 : 1;
+                this.dy = Math.random() < 0.5 ? -1 : 1;
+            } else {
+                this.directionFrames--;
+            }
+
+            if (this.x + this.dx < 0 || this.x + this.dx > canvas.width - this.size) this.dx = -this.dx;
+            if (this.y + this.dy < 0 || this.y + this.dy > canvas.height - this.size) this.dy = -this.dy;
+
+            this.x += this.dx * this.speed;
+            this.y += this.dy * this.speed;
+        }
+    }
+
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const ants = [];
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    function animateAnts() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        ants.forEach(ant => {
+            ant.move(canvas);
+            ant.draw(context);
+        });
+        requestAnimationFrame(animateAnts);
+    }
+
+    animateAnts();
+
+    document.getElementById('addAntsBtn').addEventListener('click', () => {
+        const color = document.getElementById('antColorPicker').value;
+        const quantity = parseInt(document.getElementById('antQuantity').value);
+        let radius = 20;  
+        let angleIncrement = (2 * Math.PI) / quantity;
+
+        for (let i = 0; i < quantity; i++) {
+            let angle = i * angleIncrement;
+            let x = centerX + radius * Math.cos(angle);
+            let y = centerY + radius * Math.sin(angle);
+            
+            ants.push(new Ant(x, y, color));
+
+           
+            if ((i + 1) % quantity === 0) {
+                radius += 30;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
