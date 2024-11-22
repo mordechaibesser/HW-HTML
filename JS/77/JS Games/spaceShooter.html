@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Shooter</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: black;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Space Shooter</h1>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const player = { x: 300, y: 350, width: 20, height: 20, speed: 5 };
+        const bullets = [];
+        const asteroids = [];
+        let score = 0;
+
+        function drawPlayer() {
+            ctx.fillStyle = "white";
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+        }
+
+        function createAsteroid() {
+            const asteroid = { x: Math.random() * canvas.width, y: -20, width: 20, height: 20, speed: Math.random() * 2 + 1 };
+            asteroids.push(asteroid);
+        }
+
+        function movePlayer(direction) {
+            if (direction === "left" && player.x > 0) player.x -= player.speed;
+            if (direction === "right" && player.x < canvas.width - player.width) player.x += player.speed;
+        }
+
+        function shoot() {
+            bullets.push({ x: player.x + player.width / 2, y: player.y, width: 5, height: 10, speed: 5 });
+        }
+
+        function updateGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawPlayer();
+
+            bullets.forEach((bullet, index) => {
+                bullet.y -= bullet.speed;
+                ctx.fillStyle = "red";
+                ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+
+                if (bullet.y < 0) bullets.splice(index, 1);
+            });
+
+            asteroids.forEach((asteroid, index) => {
+                asteroid.y += asteroid.speed;
+                ctx.fillStyle = "gray";
+                ctx.fillRect(asteroid.x, asteroid.y, asteroid.width, asteroid.height);
+
+                if (asteroid.y > canvas.height) asteroids.splice(index, 1);
+                if (
+                    asteroid.x < player.x + player.width &&
+                    asteroid.x + asteroid.width > player.x &&
+                    asteroid.y < player.y + player.height &&
+                    asteroid.y + asteroid.height > player.y
+                ) {
+                    alert("Game Over! Score: " + score);
+                    document.location.reload();
+                }
+
+                bullets.forEach((bullet, bIndex) => {
+                    if (
+                        bullet.x < asteroid.x + asteroid.width &&
+                        bullet.x + bullet.width > asteroid.x &&
+                        bullet.y < asteroid.y + asteroid.height &&
+                        bullet.y + bullet.height > asteroid.y
+                    ) {
+                        score++;
+                        bullets.splice(bIndex, 1);
+                        asteroids.splice(index, 1);
+                    }
+                });
+            });
+
+            ctx.fillStyle = "white";
+            ctx.fillText("Score: " + score, 10, 20);
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") movePlayer("left");
+            if (e.key === "ArrowRight") movePlayer("right");
+            if (e.key === " ") shoot();
+        });
+
+        setInterval(updateGame, 20);
+        setInterval(createAsteroid, 1000);
+    </script>
+</body>
+</html>

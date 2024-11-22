@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .question {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trivia Game</h1>
+    <div id="game">
+        <div class="question" id="question"></div>
+        <div id="choices"></div>
+    </div>
+    <div class="result" id="result"></div>
+    <script>
+        const questions = [
+            { question: "What is the capital of France?", choices: ["Paris", "London", "Rome", "Berlin"], answer: "Paris" },
+            { question: "Which planet is known as the Red Planet?", choices: ["Mars", "Venus", "Jupiter", "Saturn"], answer: "Mars" },
+            { question: "Who wrote 'Hamlet'?", choices: ["Shakespeare", "Dickens", "Hemingway", "Austen"], answer: "Shakespeare" },
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function displayQuestion() {
+            const questionEl = document.getElementById("question");
+            const choicesEl = document.getElementById("choices");
+            const resultEl = document.getElementById("result");
+            resultEl.textContent = "";
+
+            if (currentQuestion >= questions.length) {
+                questionEl.textContent = "Game Over! Final Score: " + score;
+                choicesEl.innerHTML = "";
+                return;
+            }
+
+            const q = questions[currentQuestion];
+            questionEl.textContent = q.question;
+            choicesEl.innerHTML = "";
+
+            q.choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.textContent = choice;
+                btn.onclick = () => checkAnswer(choice);
+                choicesEl.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(choice) {
+            const resultEl = document.getElementById("result");
+            if (choice === questions[currentQuestion].answer) {
+                score++;
+                resultEl.textContent = "Correct!";
+            } else {
+                resultEl.textContent = "Wrong!";
+            }
+            currentQuestion++;
+            setTimeout(displayQuestion, 1000);
+        }
+
+        displayQuestion();
+    </script>
+</body>
+</html>

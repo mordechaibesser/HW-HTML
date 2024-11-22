@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collect the Stars</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background-color: #111;
+            border: 2px solid #fff;
+        }
+        body {
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Collect the Stars!</h1>
+    <p>Use arrow keys to move. Avoid red squares and collect yellow stars!</p>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Game variables
+        const player = { x: 300, y: 200, size: 20, speed: 5 };
+        const stars = [];
+        const obstacles = [];
+        let score = 0;
+        let gameOver = false;
+
+        // Create stars and obstacles
+        function createEntity(arr, size, color) {
+            const entity = {
+                x: Math.random() * (canvas.width - size),
+                y: Math.random() * (canvas.height - size),
+                size: size,
+                color: color,
+            };
+            arr.push(entity);
+        }
+
+        // Draw the game objects
+        function drawEntity(entity) {
+            ctx.fillStyle = entity.color;
+            ctx.fillRect(entity.x, entity.y, entity.size, entity.size);
+        }
+
+        function drawCircle(entity) {
+            ctx.beginPath();
+            ctx.arc(entity.x + entity.size / 2, entity.y + entity.size / 2, entity.size / 2, 0, Math.PI * 2);
+            ctx.fillStyle = entity.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Check for collisions
+        function checkCollision(a, b) {
+            return (
+                a.x < b.x + b.size &&
+                a.x + a.size > b.x &&
+                a.y < b.y + b.size &&
+                a.y + a.size > b.y
+            );
+        }
+
+        // Handle player movement
+        const keys = {};
+        window.addEventListener('keydown', (e) => {
+            keys[e.key] = true;
+        });
+        window.addEventListener('keyup', (e) => {
+            keys[e.key] = false;
+        });
+
+        function movePlayer() {
+            if (keys['ArrowUp'] && player.y > 0) player.y -= player.speed;
+            if (keys['ArrowDown'] && player.y < canvas.height - player.size) player.y += player.speed;
+            if (keys['ArrowLeft'] && player.x > 0) player.x -= player.speed;
+            if (keys['ArrowRight'] && player.x < canvas.width - player.size) player.x += player.speed;
+        }
+
+        // Update the game
+        function updateGame() {
+            if (gameOver) return;
+
+            movePlayer();
+
+            // Check for star collection
+            stars.forEach((star, index) => {
+                if (checkCollision(player, star)) {
+                    score++;
+                    stars.splice(index, 1);
+                    createEntity(obstacles, 20, 'red'); // Add obstacle on star collection
+                }
+            });
+
+            // Check for obstacle collision
+            obstacles.forEach((obstacle) => {
+                if (checkCollision(player, obstacle)) {
+                    gameOver = true;
+                }
+            });
+
+            // Create more stars if less than 3 exist
+            if (stars.length < 3) createEntity(stars, 15, 'yellow');
+        }
+
+        // Draw the game
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw player
+            drawEntity(player);
+
+            // Draw stars and obstacles
+            stars.forEach(drawCircle);
+            obstacles.forEach(drawEntity);
+
+            // Draw score
+            ctx.fillStyle = 'white';
+            ctx.font = '20px Arial';
+            ctx.fillText(`Score: ${score}`, 10, 20);
+
+            if (gameOver) {
+                ctx.fillStyle = 'red';
+                ctx.font = '40px Arial';
+                ctx.fillText('GAME OVER', canvas.width / 2 - 120, canvas.height / 2);
+            }
+        }
+
+        // Game loop
+        function gameLoop() {
+            updateGame();
+            drawGame();
+            if (!gameOver) requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    </script>
+</body>
+</html>
