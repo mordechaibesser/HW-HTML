@@ -6,7 +6,7 @@ class App extends Component {
     super(props);
     this.state = {
       weather: null,
-      zip: "10001",
+      zip: "08701",
       loading: true,
     };
   }
@@ -25,7 +25,7 @@ class App extends Component {
         return response.json();
       })
       .then((data) => {
-        console.log("Weather Data:", data); // Debugging
+        console.log("Weather Data:", data); 
         this.setState({ weather: data, loading: false });
       })
       .catch((error) => {
