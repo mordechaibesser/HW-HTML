@@ -184,7 +184,7 @@
     "run-parallel": "^1.2.0",
     "safe-array-concat": "^1.1.2",
     "safe-regex-test": "^1.0.3",
-    "script": "^0.1.4",
+    "script": "^0.0.12",
     "semver": "^6.3.1",
     "set-function-length": "^1.2.2",
     "set-function-name": "^2.0.2",
