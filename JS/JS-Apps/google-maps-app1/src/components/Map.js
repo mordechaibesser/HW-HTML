@@ -4,7 +4,7 @@ const Map = () => {
   const mapRef = useRef(null); // Reference to the div where the map will be rendered
 
   useEffect(() => {
-    // Function to load Google Maps API dynamically
+  
     const loadGoogleMapsScript = (src) => {
       return new Promise((resolve, reject) => {
         const script = document.createElement("script");
@@ -23,7 +23,7 @@ const Map = () => {
         zoom: 12,
       });
 
-      // Add a marker to the map at the center
+      
       const marker = new window.google.maps.Marker({
         position: { lat: 37.7749, lng: -122.4194 },
         map: googleMap,
@@ -31,18 +31,18 @@ const Map = () => {
       });
     };
 
-    // Load Google Maps API script dynamically
+
     loadGoogleMapsScript(
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyAR81Gvx-n93mwBN5RvlAbtaJZ0Y_L9knM&libraries=places"
     )
       .then(() => {
-        // Initialize map after the script is loaded
+       
         initializeMap();
       })
       .catch((error) => {
         console.error("Error loading Google Maps script", error);
       });
-  }, []); // Empty dependency array, runs only once when component mounts
+  }, []); 
 
   return (
     <div
