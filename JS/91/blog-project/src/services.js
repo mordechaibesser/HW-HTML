@@ -1,21 +1,42 @@
-import axios from 'axios';
-import { displayUsers, displayPosts } from './views.js';
 
-
-export async function fetchUsers(app) {
-  try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-    displayUsers(app, response.data);
-  } catch (error) {
-    app.innerHTML = `<p>Error loading users: ${error.message}</p>`;
-  }
-}
-
-export async function fetchPosts(app, userId) {
-  try {
-    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
-    displayPosts(app, response.data, userId);
-  } catch (error) {
-    app.innerHTML = `<p>Error loading posts: ${error.message}</p>`;
-  }
-}
+export const fetchUsers = async () => {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users');
+      if (!response.ok) {
+        throw new Error('Error fetching users');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      throw new Error('Failed to fetch users');
+    }
+  };
+  
+  // Fetch posts by user ID
+  export const fetchPostsByUser = async (userId) => {
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+      if (!response.ok) {
+        throw new Error('Error fetching posts');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      throw new Error('Failed to fetch posts');
+    }
+  };
+  
+  // Fetch comments by post ID
+  export const fetchCommentsByPost = async (postId) => {
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
+      if (!response.ok) {
+        throw new Error('Error fetching comments');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      throw new Error('Failed to fetch comments');
+    }
+  };
+  

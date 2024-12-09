@@ -1,0 +1,36 @@
+body.light {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  body.dark {
+    background-color: #121212;
+    color: #fff;
+  }
+  
+  .app {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .add-expense-form input,
+  .add-expense-form select,
+  .add-expense-form button {
+    margin: 5px;
+  }
+  
+  .expense-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .expense-list th, .expense-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .theme-switcher {
+    margin: 10px;
+    padding: 5px 10px;
+  }
+  
