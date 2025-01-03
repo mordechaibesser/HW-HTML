@@ -1,0 +1,24 @@
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination .page-item {
+  margin-right: 5px;
+}
+
+.pagination .page-link {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
