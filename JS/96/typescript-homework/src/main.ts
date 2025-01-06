@@ -3,11 +3,11 @@ function addNumbers(a: number, b: number): number {
 }
 
 function greetUser(name: string, age: number): string {
-  return `Hello, ${name}! You are ${age} years old.`;
+  return `Sholom Aleichem, ${name}! You are ${age} years old.`;
 }
 
 
-const sum = addNumbers(754, 209);
+const sum = addNumbers(1234567890, 9876543210);
 console.log(`Sum: ${sum}`);
 
 const greeting = greetUser("Mordechai", 35);
@@ -27,7 +27,7 @@ function printUserDetails(user: User): void {
 
 const user: User = {
   id: 1,
-  name: "Mendy",
+  name: "Mendy Besser",
   email: "mendybesser@gmail.com",
 };
 
