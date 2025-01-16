@@ -1,0 +1,69 @@
+.App {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.user-box {
+  background-color: #ecf0f1;
+  border: 2px solid #bdc3c7;
+  padding: 20px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.user-name {
+  font-size: 18px;
+  color: #3498db;  /* Blue color for name */
+}
+
+.user-email {
+  font-size: 14px;
+  color: #16a085;  /* Green color for email */
+}
+
+.comments-section {
+  margin-top: 30px;
+}
+
+.comments-section h2 {
+  color: #e74c3c;
+}
+
+.comments-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comments-section li {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section li p {
+  color: #34495e;  /* Darker text for comment content */
+}
+
+.comments-section li strong {
+  color: #2980b9;  /* Blue color for the commenter's name */
+}
